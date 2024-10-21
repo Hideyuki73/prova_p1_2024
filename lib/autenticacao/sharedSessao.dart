@@ -2,25 +2,25 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedSessao {
 // Função para salvar o token de autenticação
-  Future<void> salvarToken(String token) async {
+  static Future<void> salvarToken(String token) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('auth_token', token);
   }
 
 // Função para carregar o token de autenticação
-  Future<String?> carregarToken() async {
+  static Future<String?> carregarToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('auth_token');
   }
 
 // Função para verificar se o usuário está logado
-  Future<bool> estaLogado() async {
+  static Future<bool> estaLogado() async {
     final token = await carregarToken();
     return token != null;
   }
 
 // Função para remover o token de autenticação (logout)
-  Future<void> removerToken() async {
+  static Future<void> removerToken() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('auth_token');
   }
@@ -30,7 +30,7 @@ class SharedSessao {
     await salvarToken(token); // Salva o token no login
   }
 
-  void logout() async {
+  static void logout() async {
     await removerToken(); // Remove o token no logout
   }
 }
