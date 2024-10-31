@@ -4,12 +4,14 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.5.3
+  sdk: ^3.5.1
 
 dependencies:
+  dart_jsonwebtoken: ^2.14.1
   flutter:
     sdk: flutter
   flutter_masked_text2: ^0.9.1
+  flutter_secure_storage: ^4.2.1
   shared_preferences: ^2.3.2
   sqflite: ^2.3.3+2
 
